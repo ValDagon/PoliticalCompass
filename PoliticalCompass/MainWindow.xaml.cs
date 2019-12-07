@@ -16,18 +16,12 @@ using System.Windows.Shapes;
 
 namespace PoliticalCompass
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public int Econ { get; set; }
-        public int Auth { get; set; }
-        public int i { get; set; }
-        public int Properties { get; set; }
-
-        //        public List<string> AuthQuestions = new List<string>();
-        //        public List<string> EconQuestions = new List<string>();
+        public int Econ;
+        public int Auth;
+        public int i;
+        public int Properties;
 
         Dictionary<string, string> AllQuestions = new Dictionary<string, string>();
 
@@ -48,89 +42,154 @@ namespace PoliticalCompass
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (AllQuestions.ElementAt(i).Value == "Auth")
+            try
             {
-                Auth -= 2;
-            }
-            else if (AllQuestions.ElementAt(i).Value == "Econ")
-            {
-                Econ -= 2;
-            }
+                if (AllQuestions.ElementAt(i).Value == "Auth")
+                {
+                    Auth -= 2;
+                }
+                else if (AllQuestions.ElementAt(i).Value == "Econ")
+                {
+                    Econ -= 2;
+                }
 
-            i += 1;
-            TextBox.Text = AllQuestions.ElementAt(i).Key;
+                TextBox.Text = AllQuestions.ElementAt(i).Key;
+                Label.Content = $"{AllQuestions.Count()} + {i}";
+                i += 1;
+            }
+            catch
+            {
+                TextBox.Text = "Идёт подсчёт результатов...";
+                using (StreamWriter sw = new StreamWriter("result.txt"))
+                {
+                    sw.Write("");
+                    sw.WriteLine($"{Econ}\n{Auth}\n");
+                }
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (AllQuestions.ElementAt(i).Value == "Auth")
+            try
             {
-                Auth -= 1;
-            }
-            else if (AllQuestions.ElementAt(i).Value == "Econ")
-            {
-                Econ -= 1;
-            }
+                if (AllQuestions.ElementAt(i).Value == "Auth")
+                {
+                    Auth -= 1;
+                }
+                else if (AllQuestions.ElementAt(i).Value == "Econ")
+                {
+                    Econ -= 1;
+                }
 
-            i += 1;
-            TextBox.Text = AllQuestions.ElementAt(i).Key;
+                TextBox.Text = AllQuestions.ElementAt(i).Key;
+                Label.Content = $"{AllQuestions.Count()} + {i}";
+                i += 1;
+            }
+            catch
+            {
+                TextBox.Text = "Идёт подсчёт результатов...";
+                using (StreamWriter sw = new StreamWriter("result.txt"))
+                {
+                    sw.Write("");
+                    sw.WriteLine($"{Econ}\n{Auth}\n");
+                }
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (AllQuestions.ElementAt(i).Value == "Auth")
+            try
             {
-                Auth -= 0;
-            }
-            else if (AllQuestions.ElementAt(i).Value == "Econ")
-            {
-                Econ -= 0;
-            }
+                if (AllQuestions.ElementAt(i).Value == "Auth")
+                {
+                    Auth -= 0;
+                }
+                else if (AllQuestions.ElementAt(i).Value == "Econ")
+                {
+                    Econ -= 0;
+                }
 
-            i += 1;
-            TextBox.Text = AllQuestions.ElementAt(i).Key;
+                TextBox.Text = AllQuestions.ElementAt(i).Key;
+                Label.Content = $"{AllQuestions.Count()} + {i}";
+                i += 1;
+            }
+            catch
+            {
+                TextBox.Text = "Идёт подсчёт результатов...";
+                using (StreamWriter sw = new StreamWriter("result.txt"))
+                {
+                    sw.Write("");
+                    sw.WriteLine($"{Econ}\n{Auth}\n");
+                }
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            if (AllQuestions.ElementAt(i).Value == "Auth")
+            try
             {
-                Auth += 1;
-            }
-            else if (AllQuestions.ElementAt(i).Value == "Econ")
-            {
-                Econ += 1;
-            }
+                if (AllQuestions.ElementAt(i).Value == "Auth")
+                {
+                    Auth += 1;
+                }
+                else if (AllQuestions.ElementAt(i).Value == "Econ")
+                {
+                    Econ += 1;
+                }
 
-            i += 1;
-            TextBox.Text = AllQuestions.ElementAt(i).Key;
+                TextBox.Text = AllQuestions.ElementAt(i).Key;
+                Label.Content = $"{AllQuestions.Count()} + {i}";
+                i += 1;
+            }
+            catch
+            {
+                TextBox.Text = "Идёт подсчёт результатов...";
+                using (StreamWriter sw = new StreamWriter("result.txt"))
+                {
+                    sw.Write("");
+                    sw.WriteLine($"{Econ}\n{Auth}\n");
+                }
+            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            if (AllQuestions.ElementAt(i).Value == "Auth")
+            try
             {
-                Auth += 2;
-            }
-            else if (AllQuestions.ElementAt(i).Value == "Econ")
-            {
-                Econ += 2;
-            }
+                if (AllQuestions.ElementAt(i).Value == "Auth")
+                {
+                    Auth += 2;
+                }
+                else if (AllQuestions.ElementAt(i).Value == "Econ")
+                {
+                    Econ += 2;
+                }
 
-            i += 1;
-            TextBox.Text = AllQuestions.ElementAt(i).Key;
+                TextBox.Text = AllQuestions.ElementAt(i).Key;
+                Label.Content = $"{AllQuestions.Count()} + {i}";
+                i += 1;
+            }
+            catch
+            {
+                TextBox.Text = "Идёт подсчёт результатов...";
+                using (StreamWriter sw = new StreamWriter("result.txt"))
+                {
+                    sw.Write("");
+                    sw.WriteLine($"{Econ}\n{Auth}\n");
+                }
+            }
         }
 
         private void ReadQuestions(string path, string TypeQ)
         {
-            string temp = "";
-            using (StreamReader fs = new StreamReader($"{path}"))
+            string temp;
+            using (StreamReader sr = new StreamReader($"{path}"))
             {
                 while (true)
                 {
 
                     // Читаем строку из файла во временную переменную.
-                    temp = fs.ReadLine();
+                    temp = sr.ReadLine();
 
                     // Если достигнут конец файла, прерываем считывание.
                     if (temp == null) break;
