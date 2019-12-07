@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
-        <Button Content="Нет" Margin="248,234,341,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_1">
+        <Button Content="Нет" Margin="234,225,346,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_1">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -18,7 +18,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="?" Margin="291,234,298,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_2">
+        <Button Content="?" Margin="291,224,288,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_2">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -29,7 +29,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="Да" Margin="334,234,255,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_3">
+        <Button Content="Да" Margin="349,225,231,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_3">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -40,7 +40,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="Да!" Margin="377,234,212,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_4">
+        <Button Content="Да!" Margin="406,225,174,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_4">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -52,7 +52,7 @@
             </Button.Template>
         </Button>
         <TextBox Name="TextBox" IsReadOnly="true" Height="61" Margin="10,127,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
-        <Button Content="Нет!" Margin="205,234,384,52" FontFamily="Georgia" FontSize="16" Click="Button_Click">
+        <Button Content="Нет!" Margin="177,225,403,52" FontFamily="Georgia" FontSize="16" Click="Button_Click">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -63,7 +63,6 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label Name="Label" Content="Label" HorizontalAlignment="Left" Margin="291,73,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

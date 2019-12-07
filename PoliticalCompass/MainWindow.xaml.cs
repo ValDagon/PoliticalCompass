@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PoliticalCompass
 {
@@ -34,8 +25,8 @@ namespace PoliticalCompass
             Econ = 0;
             Auth = 0;
 
-            ReadQuestions(@"D:\Programming\Project\PoliticalCompass\authQuestions.txt", "Auth");
-            ReadQuestions(@"D:\Programming\Project\PoliticalCompass\econQuestions.txt", "Econ");
+            ReadQuestions("db/authQuestions.txt", "Auth");
+            ReadQuestions("db/econQuestions.txt", "Econ");
 
             TextBox.Text = AllQuestions.ElementAt(i).Key;
         }
@@ -132,19 +123,25 @@ namespace PoliticalCompass
             }
 
             TextBox.Text = AllQuestions.ElementAt(i).Key;
-            Label.Content = $"{AllQuestions.Count()} + {i}";
             i += 1;
         }
 
         private void Result()
         {
             TextBox.Text = "Идёт подсчёт результатов...";
-            using (StreamWriter sw = new StreamWriter("result.txt"))
+            using (StreamWriter sw = new StreamWriter("db/result.txt"))
             {
                 sw.Write("");
                 sw.WriteLine($"{Econ}\n{Auth}\n");
             }
 
+            string GraphPath = "runPython.bat";
+            if (File.Exists(GraphPath))
+                Process.Start(GraphPath);
+            else
+                MessageBox.Show("Файл не найден");
+
+            this.Close();
         }
     }
 }
