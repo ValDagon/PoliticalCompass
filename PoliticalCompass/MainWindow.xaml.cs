@@ -44,27 +44,11 @@ namespace PoliticalCompass
         {
             try
             {
-                if (AllQuestions.ElementAt(i).Value == "Auth")
-                {
-                    Auth -= 2;
-                }
-                else if (AllQuestions.ElementAt(i).Value == "Econ")
-                {
-                    Econ -= 2;
-                }
-
-                TextBox.Text = AllQuestions.ElementAt(i).Key;
-                Label.Content = $"{AllQuestions.Count()} + {i}";
-                i += 1;
+                NextQuestion(-2, -2);
             }
             catch
             {
-                TextBox.Text = "Идёт подсчёт результатов...";
-                using (StreamWriter sw = new StreamWriter("result.txt"))
-                {
-                    sw.Write("");
-                    sw.WriteLine($"{Econ}\n{Auth}\n");
-                }
+                Result();
             }
         }
 
@@ -72,27 +56,11 @@ namespace PoliticalCompass
         {
             try
             {
-                if (AllQuestions.ElementAt(i).Value == "Auth")
-                {
-                    Auth -= 1;
-                }
-                else if (AllQuestions.ElementAt(i).Value == "Econ")
-                {
-                    Econ -= 1;
-                }
-
-                TextBox.Text = AllQuestions.ElementAt(i).Key;
-                Label.Content = $"{AllQuestions.Count()} + {i}";
-                i += 1;
+                NextQuestion(-1, -1);
             }
             catch
             {
-                TextBox.Text = "Идёт подсчёт результатов...";
-                using (StreamWriter sw = new StreamWriter("result.txt"))
-                {
-                    sw.Write("");
-                    sw.WriteLine($"{Econ}\n{Auth}\n");
-                }
+                Result();
             }
         }
 
@@ -100,27 +68,11 @@ namespace PoliticalCompass
         {
             try
             {
-                if (AllQuestions.ElementAt(i).Value == "Auth")
-                {
-                    Auth -= 0;
-                }
-                else if (AllQuestions.ElementAt(i).Value == "Econ")
-                {
-                    Econ -= 0;
-                }
-
-                TextBox.Text = AllQuestions.ElementAt(i).Key;
-                Label.Content = $"{AllQuestions.Count()} + {i}";
-                i += 1;
+                NextQuestion(0, 0);
             }
             catch
             {
-                TextBox.Text = "Идёт подсчёт результатов...";
-                using (StreamWriter sw = new StreamWriter("result.txt"))
-                {
-                    sw.Write("");
-                    sw.WriteLine($"{Econ}\n{Auth}\n");
-                }
+                Result();
             }
         }
 
@@ -128,27 +80,11 @@ namespace PoliticalCompass
         {
             try
             {
-                if (AllQuestions.ElementAt(i).Value == "Auth")
-                {
-                    Auth += 1;
-                }
-                else if (AllQuestions.ElementAt(i).Value == "Econ")
-                {
-                    Econ += 1;
-                }
-
-                TextBox.Text = AllQuestions.ElementAt(i).Key;
-                Label.Content = $"{AllQuestions.Count()} + {i}";
-                i += 1;
+                NextQuestion(1, 1);
             }
             catch
             {
-                TextBox.Text = "Идёт подсчёт результатов...";
-                using (StreamWriter sw = new StreamWriter("result.txt"))
-                {
-                    sw.Write("");
-                    sw.WriteLine($"{Econ}\n{Auth}\n");
-                }
+                Result();
             }
         }
 
@@ -156,27 +92,11 @@ namespace PoliticalCompass
         {
             try
             {
-                if (AllQuestions.ElementAt(i).Value == "Auth")
-                {
-                    Auth += 2;
-                }
-                else if (AllQuestions.ElementAt(i).Value == "Econ")
-                {
-                    Econ += 2;
-                }
-
-                TextBox.Text = AllQuestions.ElementAt(i).Key;
-                Label.Content = $"{AllQuestions.Count()} + {i}";
-                i += 1;
+                NextQuestion(2, 2);
             }
             catch
             {
-                TextBox.Text = "Идёт подсчёт результатов...";
-                using (StreamWriter sw = new StreamWriter("result.txt"))
-                {
-                    sw.Write("");
-                    sw.WriteLine($"{Econ}\n{Auth}\n");
-                }
+                Result();
             }
         }
 
@@ -198,6 +118,33 @@ namespace PoliticalCompass
                     AllQuestions.Add(temp, TypeQ);
                 }
             }
+        }
+
+        private void NextQuestion(int auth, int econ)
+        {
+            if (AllQuestions.ElementAt(i).Value == "Auth")
+            {
+                Auth += auth;
+            }
+            else if (AllQuestions.ElementAt(i).Value == "Econ")
+            {
+                Econ += econ;
+            }
+
+            TextBox.Text = AllQuestions.ElementAt(i).Key;
+            Label.Content = $"{AllQuestions.Count()} + {i}";
+            i += 1;
+        }
+
+        private void Result()
+        {
+            TextBox.Text = "Идёт подсчёт результатов...";
+            using (StreamWriter sw = new StreamWriter("result.txt"))
+            {
+                sw.Write("");
+                sw.WriteLine($"{Econ}\n{Auth}\n");
+            }
+
         }
     }
 }
