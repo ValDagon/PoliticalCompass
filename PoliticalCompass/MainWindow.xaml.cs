@@ -129,6 +129,34 @@ namespace PoliticalCompass
         private void Result()
         {
             TextBox.Text = "Идёт подсчёт результатов...";
+
+            var ResultAuth = 100 / 28 * Auth;
+            var ResultEcon = 100 / 28 * Econ;
+
+            ResultWindow reswin = new ResultWindow();
+
+            reswin.LabelResult.Content = "Ваши политический координаты:\n";
+
+            if (Auth > 0)
+                reswin.LabelResult.Content += $"{ResultAuth}% авторитарный; ";
+            else if (Auth == 0)
+                reswin.LabelResult.Content += "Вы ровно в центре между авторитарными и либертарианскими идеями; ";
+            else if (Auth < 0)
+                reswin.LabelResult.Content += $"{ResultAuth}% либертарианец; ";
+            else
+                reswin.LabelResult.Content += $"Что-то пошло не так, вот ваши результаты: Авторитарная ось: {ResultAuth}; ";
+
+            if (Econ > 0)
+                reswin.LabelResult.Content += $"{ResultEcon}% правый";
+            else if (Auth == 0)
+                reswin.LabelResult.Content += "Вы ровно в центре между правыми и левыми идеями";
+            else if (Auth < 0)
+                reswin.LabelResult.Content += $"{ResultEcon}% левый";
+            else
+                reswin.LabelResult.Content += $"Что-то пошло не так, вот ваши результаты: Экономическая ось: {ResultEcon}";
+
+            reswin.Show();
+
             using (StreamWriter sw = new StreamWriter("db/result.txt"))
             {
                 sw.Write("");
@@ -142,6 +170,7 @@ namespace PoliticalCompass
                 MessageBox.Show("Файл не найден");
 
             this.Close();
+
         }
     }
 }

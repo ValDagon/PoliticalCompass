@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoliticalCompass"
         mc:Ignorable="d"
-        Title="MainWindow" Height="360" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center">
+        Title="Политический компас " Height="360" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
-        <Button Content="Нет" Margin="234,225,346,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="207*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Нет" Margin="16,201,346,76" FontFamily="Georgia" FontSize="16" Click="Button_Click_1" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -18,7 +22,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="?" Margin="291,224,288,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_2">
+        <Button Content="?" Margin="73,200,288,76" FontFamily="Georgia" FontSize="16" Click="Button_Click_2" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -29,7 +33,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="Да" Margin="349,225,231,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_3">
+        <Button Content="Да" Margin="131,201,231,76" FontFamily="Georgia" FontSize="16" Click="Button_Click_3" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -40,7 +44,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Content="Да!" Margin="406,225,174,52" FontFamily="Georgia" FontSize="16" Click="Button_Click_4">
+        <Button Content="Да!" Margin="188,201,174,76" FontFamily="Georgia" FontSize="16" Click="Button_Click_4" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -51,8 +55,8 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBox Name="TextBox" IsReadOnly="true" Height="61" Margin="10,127,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
-        <Button Content="Нет!" Margin="177,225,403,52" FontFamily="Georgia" FontSize="16" Click="Button_Click">
+        <TextBox Name="TextBox" IsReadOnly="true" Height="61" Margin="10,103,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"/>
+        <Button Content="Нет!" Margin="177,201,403,76" FontFamily="Georgia" FontSize="16" Click="Button_Click" Grid.ColumnSpan="2">
             <Button.Template>
                 <ControlTemplate  TargetType="{x:Type Button}">
                     <Grid>
@@ -63,6 +67,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <Label Content="Согласны ли вы с тем что" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="177,69,174,0" VerticalAlignment="Top" Width="281" FontSize="14" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
