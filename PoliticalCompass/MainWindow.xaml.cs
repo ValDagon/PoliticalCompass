@@ -130,30 +130,31 @@ namespace PoliticalCompass
         {
             TextBox.Text = "Идёт подсчёт результатов...";
 
-            var ResultAuth = 100 / 28 * Auth;
-            var ResultEcon = 100 / 28 * Econ;
+            float ResultAuth = 100f / 28f * Auth;
+            float ResultEcon = 100f / 28f * Econ;
+            
 
             ResultWindow reswin = new ResultWindow();
 
             reswin.LabelResult.Content = "Ваши политический координаты:\n";
-
+            
             if (Auth > 0)
-                reswin.LabelResult.Content += $"{ResultAuth}% авторитарный; ";
+                reswin.LabelResult.Content += $"{System.Math.Round(ResultAuth)}% авторитарный; ";
             else if (Auth == 0)
                 reswin.LabelResult.Content += "Вы ровно в центре между авторитарными и либертарианскими идеями; ";
             else if (Auth < 0)
-                reswin.LabelResult.Content += $"{ResultAuth}% либертарианец; ";
+                reswin.LabelResult.Content += $"{System.Math.Round(ResultAuth) * -1}% либертарианец; ";
             else
-                reswin.LabelResult.Content += $"Что-то пошло не так, вот ваши результаты: Авторитарная ось: {ResultAuth}; ";
+                reswin.LabelResult.Content += $"Что-то пошло не так, вот ваши результаты: Авторитарная ось: {System.Math.Round(ResultAuth)}; ";
 
             if (Econ > 0)
-                reswin.LabelResult.Content += $"{ResultEcon}% правый";
-            else if (Auth == 0)
+                reswin.LabelResult.Content += $"{System.Math.Round(ResultEcon)}% правый";
+            else if (Econ == 0)
                 reswin.LabelResult.Content += "Вы ровно в центре между правыми и левыми идеями";
-            else if (Auth < 0)
-                reswin.LabelResult.Content += $"{ResultEcon}% левый";
+            else if (Econ < 0)
+                reswin.LabelResult.Content += $"{System.Math.Round(ResultEcon) * -1}% левый";
             else
-                reswin.LabelResult.Content += $"Что-то пошло не так, вот ваши результаты: Экономическая ось: {ResultEcon}";
+                reswin.LabelResult.Content += $"Что-то пошло не так, вот ваши результаты: Экономическая ось: {System.Math.Round(ResultEcon)}";
 
             reswin.Show();
 
