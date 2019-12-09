@@ -121,8 +121,12 @@ venv.bak/
 *.userprefs
 
 # Build results
-[Dd]ebug/
-[Rr]elease/
+[Dd]ebug/*.exe
+[Rr]elease/*.exe
+[Dd]ebug/*.pdb
+[Rr]elease/*.pdb
+[Dd]ebug/*.exe.*
+[Rr]elease/*.exe.*
 [Dd]ebugPublic/
 [Rr]eleases/
 x64/
@@ -130,8 +134,6 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 

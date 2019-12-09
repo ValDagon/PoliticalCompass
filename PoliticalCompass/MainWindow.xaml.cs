@@ -11,8 +11,7 @@ namespace PoliticalCompass
     {
         public int Econ;
         public int Auth;
-        public int i;
-        public int Properties;
+        public byte i;
 
         Dictionary<string, string> AllQuestions = new Dictionary<string, string>();
 
@@ -20,7 +19,7 @@ namespace PoliticalCompass
         public MainWindow()
         {
             InitializeComponent();
-
+            
             i = 0;
             Econ = 0;
             Auth = 0;
@@ -122,8 +121,9 @@ namespace PoliticalCompass
                 Econ += econ;
             }
 
-            TextBox.Text = AllQuestions.ElementAt(i).Key;
             i += 1;
+            TextBox.Text = AllQuestions.ElementAt(i).Key;
+
         }
 
         private void Result()
