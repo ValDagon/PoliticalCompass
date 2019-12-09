@@ -3,7 +3,7 @@ from matplotlib import pylab, patches
 import numpy as np
 import os
 
-handle = open(r"D:\Programming\Project\PoliticalCompass\PoliticalCompass\bin\Release\db\result.txt", "r")
+handle = open(r"db\result.txt", "r")
 
 resultList = []
 for line in handle:
