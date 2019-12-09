@@ -116,16 +116,14 @@ venv.bak/
 *.user
 *.userosscache
 *.sln.docstates
+*.exe
+*.exe.config
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
 # Build results
-[Dd]ebug/*.exe
-[Rr]elease/*.exe
 [Dd]ebug/*.pdb
 [Rr]elease/*.pdb
-[Dd]ebug/*.exe.*
-[Rr]elease/*.exe.*
 [Dd]ebugPublic/
 [Rr]eleases/
 x64/
